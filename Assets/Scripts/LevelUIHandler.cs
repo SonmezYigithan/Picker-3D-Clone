@@ -8,6 +8,7 @@ public class LevelUIHandler : MonoBehaviour
     private int level;
     [SerializeField] TMP_Text levelTxt;
     [SerializeField] GameObject levelFailedPanel;
+    [SerializeField] GameObject levelCompletedPanel;
 
     void Start()
     {
@@ -17,9 +18,12 @@ public class LevelUIHandler : MonoBehaviour
         levelTxt.text = "LEVEL " + PlayerPrefs.GetInt("Level",1).ToString();
     }
 
+    #region UI
+
     void UpdateLevelUI()
     {
         levelTxt.text = "LEVEL " + PlayerPrefs.GetInt("Level", 1).ToString();
+        levelCompletedPanel.SetActive(true);
     }
 
     void ShowLevelFailedPanel()
@@ -27,11 +31,20 @@ public class LevelUIHandler : MonoBehaviour
         levelFailedPanel.SetActive(true);
     }
 
+    #endregion
+
     #region Buttons
 
     public void RetryButton()
     {
         GameManager.instance.RetryLevel();
+    }
+
+    public void ContinueButton()
+    {
+        levelCompletedPanel.SetActive(false);
+        GameManager.instance.ContinueNextLevel();
+        Debug.Log("ContinueButton");
     }
 
     #endregion

@@ -51,8 +51,9 @@ public class PlayerMovement : MonoBehaviour
             }
 
             float swerveAmount = Time.deltaTime * swerveSpeed * moveFactorX;
+            Debug.Log("swerveAmount " + swerveAmount);
 
-            rb.velocity = new Vector3(Mathf.Clamp(swerveAmount, -3.5f, 3.5f), 0, forwardSpeed) * forwardSpeed;
+            rb.velocity = new Vector3(Mathf.Clamp(swerveAmount, -20f, 20f), 0, forwardSpeed) * forwardSpeed;
         }        
     }
 

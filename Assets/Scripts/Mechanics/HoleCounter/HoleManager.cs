@@ -40,7 +40,7 @@ public class HoleManager : MonoBehaviour
     {
         gate1.transform.DORotate(new Vector3(0, 0, 90), 1, RotateMode.Fast);
         gate2.transform.DORotate(new Vector3(0, 0, -90), 1, RotateMode.Fast);
-        hiddenFloor.transform.DOMoveY(-0.2f, 2);
+        hiddenFloor.transform.DOMoveY(-0.25f, 2);
 
         gate1.transform.GetChild(0).GetComponent<Collider>().enabled = false;
         gate2.transform.GetChild(0).GetComponent<Collider>().enabled = false;

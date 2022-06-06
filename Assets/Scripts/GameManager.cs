@@ -34,12 +34,16 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level",1)+1);
         GameEvents.instance.LevelPassed();
 
-        picker.GetComponent<PlayerMovement>().MovePicker();
     }
 
     public void RetryLevel()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ContinueNextLevel()
+    {
+        picker.GetComponent<PlayerMovement>().MovePicker();
     }
 
     public void LevelFailed()
